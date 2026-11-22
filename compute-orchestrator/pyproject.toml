@@ -3,9 +3,9 @@ requires = ["setuptools>=68"]
 build-backend = "setuptools.backends._legacy:_Backend"
 
 [project]
-name = "infra-network-security"
+name = "compute-orchestrator"
 version = "1.0.0"
-description = "Enterprise AES-256 Secrets Vault & Network Defense Security"
+description = "Enterprise Compute & Container Orchestrator"
 requires-python = ">=3.10"
 
 [tool.pytest.ini_options]

@@ -27,13 +27,13 @@
           <h1 class="text-lg font-bold tracking-tight text-white">ENTERPRISE INFRASTRUCTURE COMMAND CENTER</h1>
           <span class="px-2 py-0.5 text-xs font-semibold rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">● 20 TESTS PASSED</span>
         </div>
-        <p class="text-xs text-slate-400">Presales Toolkit • Compute, Storage, Network & Secrets Architecture</p>
+        <p class="text-xs text-slate-400">Presales Engineering Platform • 4 Curated Sub-Infra Pillars</p>
       </div>
     </div>
     <div class="flex items-center space-x-4">
       <div class="hidden md:flex flex-col text-right">
-        <span class="text-xs text-slate-400">Platform Status</span>
-        <span class="text-xs font-mono font-semibold text-cyan-400">HEALTHY • 6 MODULES</span>
+        <span class="text-xs text-slate-400">Environment</span>
+        <span class="text-xs font-mono font-semibold text-cyan-400">ENTERPRISE-PROD-JKT</span>
       </div>
       <a href="https://github.com/febriyansyah-id/infra-workspace" target="_blank" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-medium text-slate-200 border border-slate-700 transition flex items-center space-x-1.5">
         <span>GitHub Repository</span>
@@ -49,16 +49,16 @@
         <span>📊</span><span>Operations Overview</span>
       </button>
       <button onclick="switchTab('compute')" id="tab-btn-compute" class="tab-btn py-3 border-b-2 border-transparent text-slate-400 hover:text-slate-200 flex items-center space-x-2">
-        <span>🖥️</span><span>Compute & Containers</span>
+        <span>🖥️</span><span>compute-orchestrator</span>
       </button>
       <button onclick="switchTab('storage')" id="tab-btn-storage" class="tab-btn py-3 border-b-2 border-transparent text-slate-400 hover:text-slate-200 flex items-center space-x-2">
-        <span>💾</span><span>Storage & SMART</span>
+        <span>💾</span><span>storage-health</span>
       </button>
       <button onclick="switchTab('network')" id="tab-btn-network" class="tab-btn py-3 border-b-2 border-transparent text-slate-400 hover:text-slate-200 flex items-center space-x-2">
-        <span>🌐</span><span>Network Discovery</span>
+        <span>🌐</span><span>network-discovery</span>
       </button>
       <button onclick="switchTab('security')" id="tab-btn-security" class="tab-btn py-3 border-b-2 border-transparent text-slate-400 hover:text-slate-200 flex items-center space-x-2">
-        <span>🔐</span><span>Vault & Security</span>
+        <span>🔐</span><span>network-security-vault</span>
       </button>
     </nav>
   </div>
@@ -72,35 +72,35 @@
       <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
         <div class="glass-card p-4">
           <div class="flex justify-between items-center text-xs text-slate-400 mb-1">
-            <span>COMPUTE HEALTH</span>
-            <span class="text-emerald-400">NORMAL</span>
+            <span>COMPUTE ORCHESTRATOR</span>
+            <span class="text-emerald-400">9 TESTS PASSED</span>
           </div>
-          <div class="text-2xl font-bold text-white">4 Node Clusters</div>
-          <p class="text-xs text-slate-400 mt-2">Avg CPU: <span class="text-cyan-400 font-mono">24.5%</span> | RAM: <span class="text-cyan-400 font-mono">42.1%</span></p>
+          <div class="text-2xl font-bold text-white">Docker & Cloud-Init</div>
+          <p class="text-xs text-slate-400 mt-2">Active Stacks: <span class="text-cyan-400 font-mono">Web, Monitoring</span></p>
         </div>
         <div class="glass-card p-4">
           <div class="flex justify-between items-center text-xs text-slate-400 mb-1">
-            <span>STORAGE POOL</span>
-            <span class="text-emerald-400">SMART PASSED</span>
+            <span>STORAGE HEALTH</span>
+            <span class="text-emerald-400">4 TESTS PASSED</span>
           </div>
-          <div class="text-2xl font-bold text-white">48.6 TB / 80 TB</div>
-          <p class="text-xs text-slate-400 mt-2">NVMe IOPS: <span class="text-cyan-400 font-mono">142,500</span> | Latency: <span class="text-cyan-400 font-mono">0.42ms</span></p>
+          <div class="text-2xl font-bold text-white">SMART Status: OK</div>
+          <p class="text-xs text-slate-400 mt-2">Random IOPS: <span class="text-cyan-400 font-mono">142,500</span> (Latency 0.42ms)</p>
         </div>
         <div class="glass-card p-4">
           <div class="flex justify-between items-center text-xs text-slate-400 mb-1">
-            <span>DISCOVERED HOSTS</span>
-            <span class="text-cyan-400">ACTIVE SCAN</span>
+            <span>NETWORK DISCOVERY</span>
+            <span class="text-emerald-400">3 TESTS PASSED</span>
           </div>
-          <div class="text-2xl font-bold text-white">32 Endpoints</div>
-          <p class="text-xs text-slate-400 mt-2">Subnet: <span class="text-cyan-400 font-mono">192.168.1.0/24</span> (SNMP / ARP)</p>
+          <div class="text-2xl font-bold text-white">Subnet Scanner</div>
+          <p class="text-xs text-slate-400 mt-2">Range: <span class="text-cyan-400 font-mono">192.168.1.0/24</span> (SNMP / ARP)</p>
         </div>
         <div class="glass-card p-4">
           <div class="flex justify-between items-center text-xs text-slate-400 mb-1">
-            <span>SECRETS VAULT</span>
-            <span class="text-emerald-400">AES-256 ACTIVE</span>
+            <span>SECURITY VAULT</span>
+            <span class="text-emerald-400">4 TESTS PASSED</span>
           </div>
-          <div class="text-2xl font-bold text-white">18 Keys Stored</div>
-          <p class="text-xs text-slate-400 mt-2">Fernet PBKDF2 Key Derivation</p>
+          <div class="text-2xl font-bold text-white">AES-256 Fernet</div>
+          <p class="text-xs text-slate-400 mt-2">KDF: <span class="text-cyan-400 font-mono">PBKDF2 HMAC-SHA256</span></p>
         </div>
       </div>
 
@@ -120,28 +120,28 @@
           <div class="space-y-3 text-xs">
             <div class="p-3 bg-slate-900/80 rounded border border-slate-800 flex justify-between items-center">
               <div>
-                <span class="font-semibold text-white block">🖥️ compute/</span>
-                <span class="text-slate-400">Docker compose stacks, IaC templates, host health agent</span>
+                <span class="font-semibold text-white block">🖥️ compute-orchestrator</span>
+                <span class="text-slate-400">Docker compose stacks, IaC templates, health agent</span>
               </div>
               <span class="text-emerald-400 font-mono">9 Tests ✅</span>
             </div>
             <div class="p-3 bg-slate-900/80 rounded border border-slate-800 flex justify-between items-center">
               <div>
-                <span class="font-semibold text-white block">💾 storage/</span>
+                <span class="font-semibold text-white block">💾 storage-health</span>
                 <span class="text-slate-400">Disk pool health, SMART telemetry, IOPS & latency audit</span>
               </div>
               <span class="text-emerald-400 font-mono">4 Tests ✅</span>
             </div>
             <div class="p-3 bg-slate-900/80 rounded border border-slate-800 flex justify-between items-center">
               <div>
-                <span class="font-semibold text-white block">🌐 network/</span>
+                <span class="font-semibold text-white block">🌐 network-discovery</span>
                 <span class="text-slate-400">Subnet scanner, ICMP ping sweep, SNMP walker & port inventory</span>
               </div>
               <span class="text-emerald-400 font-mono">3 Tests ✅</span>
             </div>
             <div class="p-3 bg-slate-900/80 rounded border border-slate-800 flex justify-between items-center">
               <div>
-                <span class="font-semibold text-white block">🔐 network-security/</span>
+                <span class="font-semibold text-white block">🔐 network-security-vault</span>
                 <span class="text-slate-400">AES-256 encrypted credential store & PBKDF2 key derivation</span>
               </div>
               <span class="text-emerald-400 font-mono">4 Tests ✅</span>
@@ -151,10 +151,10 @@
       </div>
     </div>
 
-    <!-- TAB 2: COMPUTE & CONTAINERS -->
+    <!-- TAB 2: COMPUTE ORCHESTRATOR -->
     <div id="tab-compute" class="tab-pane hidden space-y-6">
       <div class="glass-card p-5">
-        <h2 class="text-base font-bold text-white mb-2">🖥️ Compute & Container Orchestrator</h2>
+        <h2 class="text-base font-bold text-white mb-2">🖥️ compute-orchestrator</h2>
         <p class="text-xs text-slate-400 mb-4">Generate and preview production-ready Docker Compose stacks dynamically (`web`, `monitoring`).</p>
         <div class="flex space-x-3 mb-4">
           <button onclick="renderStack('web')" id="btn-stack-web" class="px-4 py-2 bg-cyan-600 hover:bg-cyan-500 text-white rounded text-xs font-semibold">Web Stack (Nginx + App + DB)</button>
@@ -164,11 +164,11 @@
       </div>
     </div>
 
-    <!-- TAB 3: STORAGE & SMART -->
+    <!-- TAB 3: STORAGE HEALTH -->
     <div id="tab-storage" class="tab-pane hidden space-y-6">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div class="glass-card p-5">
-          <h2 class="text-base font-bold text-white mb-2">💾 Storage Health Checker</h2>
+          <h2 class="text-base font-bold text-white mb-2">💾 storage-health</h2>
           <p class="text-xs text-slate-400 mb-4">Auditing block devices, SMART telemetry status, and IOPS latency parameters.</p>
           <div class="space-y-4">
             <div>
@@ -238,8 +238,8 @@
     <!-- TAB 4: NETWORK DISCOVERY -->
     <div id="tab-network" class="tab-pane hidden space-y-6">
       <div class="glass-card p-5">
-        <h2 class="text-base font-bold text-white mb-2">🌐 Subnet Scanner & Inventory Discovery</h2>
-        <p class="text-xs text-slate-400 mb-4">Simulating `network/net_discovery` ping sweep and SNMP port analyzer on target subnet.</p>
+        <h2 class="text-base font-bold text-white mb-2">🌐 network-discovery</h2>
+        <p class="text-xs text-slate-400 mb-4">Simulating subnet ping sweep and SNMP port analyzer on target subnet.</p>
         <div class="flex space-x-3 mb-4">
           <input type="text" id="scanSubnet" value="192.168.1.0/24" class="px-3 py-1.5 bg-slate-900 border border-slate-700 rounded text-xs font-mono text-cyan-300 w-48">
           <button onclick="runDiscovery()" class="px-4 py-1.5 bg-cyan-600 hover:bg-cyan-500 text-white rounded text-xs font-semibold">Run Subnet Discovery</button>
@@ -250,11 +250,11 @@
       </div>
     </div>
 
-    <!-- TAB 5: VAULT & SECURITY -->
+    <!-- TAB 5: SECURITY VAULT -->
     <div id="tab-security" class="tab-pane hidden space-y-6">
       <div class="glass-card p-5 max-w-2xl">
-        <h2 class="text-base font-bold text-white mb-2">🔐 AES-256 Vault Secrets Manager</h2>
-        <p class="text-xs text-slate-400 mb-4">Interactive testbed for `network_security/vault_secrets` using PBKDF2 HMAC-SHA256 and Fernet symmetric encryption.</p>
+        <h2 class="text-base font-bold text-white mb-2">🔐 network-security-vault</h2>
+        <p class="text-xs text-slate-400 mb-4">Interactive testbed for `network-security-vault` using PBKDF2 HMAC-SHA256 and Fernet AES-256 symmetric encryption.</p>
         <div class="space-y-3">
           <div>
             <label class="block text-xs text-slate-400 mb-1">Secret Key Name</label>
@@ -275,7 +275,7 @@
   </main>
 
   <footer class="border-t border-slate-800 bg-slate-900/60 py-3 text-center text-xs text-slate-500">
-    Febriyansyah • Presales Infrastructure Operations Hub • Clean Modular Architecture
+    Febriyansyah • Presales Infrastructure Operations Hub • 4 Sub-Infra Pillars
   </footer>
 
   <script>
@@ -341,11 +341,11 @@
     new Chart(ctx, {
       type: 'line',
       data: {
-        labels: ['17:40', '17:42', '17:44', '17:46', '17:48', '17:50', '17:52', '17:54'],
+        labels: ['18:00', '18:02', '18:04', '18:06', '18:08', '18:10'],
         datasets: [
-          { label: 'CPU Usage (%)', data: [18, 24, 21, 35, 28, 22, 25, 24], borderColor: '#38bdf8', tension: 0.3, fill: false },
-          { label: 'RAM Usage (%)', data: [40, 41, 41, 42, 43, 42, 42, 42], borderColor: '#34d399', tension: 0.3, fill: false },
-          { label: 'Disk IOPS (x1000)', data: [85, 92, 110, 142, 120, 135, 128, 142], borderColor: '#fbbf24', tension: 0.3, fill: false }
+          { label: 'CPU Usage (%)', data: [18, 24, 21, 35, 28, 24], borderColor: '#38bdf8', tension: 0.3, fill: false },
+          { label: 'RAM Usage (%)', data: [40, 41, 41, 42, 43, 42], borderColor: '#34d399', tension: 0.3, fill: false },
+          { label: 'Disk IOPS (x1000)', data: [85, 92, 110, 142, 120, 142], borderColor: '#fbbf24', tension: 0.3, fill: false }
         ]
       },
       options: {

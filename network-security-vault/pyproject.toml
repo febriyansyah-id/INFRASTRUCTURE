@@ -3,9 +3,9 @@ requires = ["setuptools>=68"]
 build-backend = "setuptools.backends._legacy:_Backend"
 
 [project]
-name = "infra-network"
+name = "network-security-vault"
 version = "1.0.0"
-description = "Enterprise Network Discovery & Inventory Scanner"
+description = "Enterprise AES-256 Secrets Vault & Network Defense Security"
 requires-python = ">=3.10"
 
 [tool.pytest.ini_options]

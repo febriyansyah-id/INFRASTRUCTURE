@@ -3,7 +3,7 @@ requires = ["setuptools>=68"]
 build-backend = "setuptools.backends._legacy:_Backend"
 
 [project]
-name = "infra-storage"
+name = "storage-health"
 version = "1.0.0"
 description = "Enterprise Storage Health & SMART Telemetry Auditor"
 requires-python = ">=3.10"

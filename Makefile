@@ -7,34 +7,34 @@ test:
 	python -m pytest -v
 
 test-compute:
-	pytest compute/ -v
+	pytest compute-orchestrator/ -v
 
 test-storage:
-	pytest storage/ -v
+	pytest storage-health/ -v
 
 test-network:
-	pytest network/ -v
+	pytest network-discovery/ -v
 
 test-sec:
-	pytest network-security/ -v
+	pytest network-security-vault/ -v
 
 scan-net:
-	python -m network.src.scanner --target 192.168.1.0/24
+	python -m network-discovery.src.scanner --target 192.168.1.0/24
 
 generate-compose:
-	python -m compute.src.compose --stack web
+	python -m compute-orchestrator.src.compose --stack web
 
 run-agent:
-	python -m compute.src.agent
+	python -m compute-orchestrator.src.agent
 
 check-storage:
-	python -m storage.src.checker
+	python -m storage-health.src.checker
 
 generate-iac:
-	python -m compute.src.templates --template cloud-init
+	python -m compute-orchestrator.src.templates --template cloud-init
 
 vault:
-	python -m network-security.src.vault --help
+	python -m network-security-vault.src.vault --help
 
 lint:
 	ruff check . --ignore E501 || true
