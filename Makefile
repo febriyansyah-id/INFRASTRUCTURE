@@ -4,25 +4,25 @@ setup:
 	pip install -r requirements.txt
 
 test:
-	python -m pytest projects/ -v
+	python -m pytest -v
 
 scan-net:
-	python -m projects.net_discovery.src.scanner --target 192.168.1.0/24
+	python -m network.net_discovery.src.scanner --target 192.168.1.0/24
 
 generate-compose:
-	python -m projects.docker_stacks.src.compose --stack web
+	python -m compute.docker_stacks.src.compose --stack web
 
 run-agent:
-	python -m projects.monitor_agent.src.agent
+	python -m compute.monitor_agent.src.agent
 
 check-storage:
-	python -m projects.storage_health.src.checker
+	python -m storage.storage_health.src.checker
 
 generate-iac:
-	python -m projects.iac_scripts.src.templates --template cloud-init
+	python -m compute.iac_scripts.src.templates --template cloud-init
 
 vault:
-	python -m projects.vault_secrets.src.vault --help
+	python -m network_security.vault_secrets.src.vault --help
 
 lint:
 	ruff check . --ignore E501 || true

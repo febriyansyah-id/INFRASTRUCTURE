@@ -1,7 +1,7 @@
 import pytest
 import os
 import tempfile
-from projects.vault_secrets.src.vault import Vault, derive_key, encrypt_secret, decrypt_secret
+from network_security.vault_secrets.src.vault import Vault, derive_key, encrypt_secret, decrypt_secret
 
 
 def test_encrypt_decrypt():

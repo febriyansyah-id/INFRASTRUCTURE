@@ -1,5 +1,5 @@
 import pytest
-from projects.iac_scripts.src.templates import generate_cloud_init, generate_docker_compose, list_templates
+from compute.iac_scripts.src.templates import generate_cloud_init, generate_docker_compose, list_templates
 
 
 def test_generate_cloud_init():

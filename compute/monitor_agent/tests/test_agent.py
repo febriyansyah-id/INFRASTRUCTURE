@@ -1,5 +1,5 @@
 import pytest
-from projects.monitor_agent.src.agent import check_health, simulate_metrics
+from compute.monitor_agent.src.agent import check_health, simulate_metrics
 
 
 def test_simulate_metrics_keys():

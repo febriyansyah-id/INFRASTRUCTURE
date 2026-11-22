@@ -1,6 +1,6 @@
 import pytest
 import yaml
-from projects.docker_stacks.src.compose import generate_web_stack, generate_monitoring_stack, list_stacks
+from compute.docker_stacks.src.compose import generate_web_stack, generate_monitoring_stack, list_stacks
 
 
 def test_generate_web_stack_valid_yaml():

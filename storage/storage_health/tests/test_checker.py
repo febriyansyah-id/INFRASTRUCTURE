@@ -1,5 +1,5 @@
 import pytest
-from projects.storage_health.src.checker import (
+from storage.storage_health.src.checker import (
     simulate_disk_info, simulate_smart_data, simulate_iops, health_report
 )
 

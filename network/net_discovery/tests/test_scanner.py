@@ -1,5 +1,5 @@
 import pytest
-from projects.net_discovery.src.scanner import scan_port, COMMON_PORTS, generate_inventory, discover_network
+from network.net_discovery.src.scanner import scan_port, COMMON_PORTS, generate_inventory, discover_network
 
 
 def test_scan_port_returns_dict_or_none():
