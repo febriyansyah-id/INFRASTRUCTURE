@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enterprise Infrastructure & Presales Command Center | Compute, Storage, Network & Security</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚙️</text></svg>">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body { background-color: #0b0f19; color: #e2e8f0; font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    .glass-card { background: rgba(15, 23, 42, 0.75); border: 1px solid rgba(56, 189, 248, 0.2); backdrop-filter: blur(12px); border-radius: 12px; }
+    .glass-card-hover:hover { border-color: rgba(56, 189, 248, 0.5); box-shadow: 0 10px 25px -5px rgba(56, 189, 248, 0.15); }
+    .metric-badge { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col antialiased">
+
+  <!-- Header -->
+  <header class="border-b border-slate-800 bg-slate-900/80 sticky top-0 z-50 backdrop-blur-md px-6 py-3 flex items-center justify-between">
+    <div class="flex items-center space-x-3">
+      <div class="w-10 h-10 rounded-lg bg-cyan-500/10 border border-cyan-400/30 flex items-center justify-center text-xl">⚙️</div>
+      <div>
+        <div class="flex items-center space-x-2">
+          <h1 class="text-lg font-bold tracking-tight text-white">ENTERPRISE INFRASTRUCTURE COMMAND CENTER</h1>
+          <span class="px-2 py-0.5 text-xs font-semibold rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">● 20 TESTS PASSED</span>
+        </div>
+        <p class="text-xs text-slate-400">Presales Toolkit • Compute, Storage, Network & Secrets Architecture</p>
+      </div>
+    </div>
+    <div class="flex items-center space-x-4">
+      <div class="hidden md:flex flex-col text-right">
+        <span class="text-xs text-slate-400">Platform Status</span>
+        <span class="text-xs font-mono font-semibold text-cyan-400">HEALTHY • 6 MODULES</span>
+      </div>
+      <a href="https://github.com/febriyansyah-id/infra-workspace" target="_blank" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-medium text-slate-200 border border-slate-700 transition flex items-center space-x-1.5">
+        <span>GitHub Repository</span>
+        <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+      </a>
+    </div>
+  </header>
+
+  <!-- Navigation Tabs -->
+  <div class="bg-slate-900/60 border-b border-slate-800 px-6">
+    <nav class="flex space-x-6 text-sm font-medium">
+      <button onclick="switchTab('overview')" id="tab-btn-overview" class="tab-btn py-3 border-b-2 border-cyan-400 text-cyan-400 flex items-center space-x-2">
+        <span>📊</span><span>Operations Overview</span>
+      </button>
+      <button onclick="switchTab('compute')" id="tab-btn-compute" class="tab-btn py-3 border-b-2 border-transparent text-slate-400 hover:text-slate-200 flex items-center space-x-2">
+        <span>🖥️</span><span>Compute & Containers</span>
+      </button>
+      <button onclick="switchTab('storage')" id="tab-btn-storage" class="tab-btn py-3 border-b-2 border-transparent text-slate-400 hover:text-slate-200 flex items-center space-x-2">
+        <span>💾</span><span>Storage & SMART</span>
+      </button>
+      <button onclick="switchTab('network')" id="tab-btn-network" class="tab-btn py-3 border-b-2 border-transparent text-slate-400 hover:text-slate-200 flex items-center space-x-2">
+        <span>🌐</span><span>Network Discovery</span>
+      </button>
+      <button onclick="switchTab('security')" id="tab-btn-security" class="tab-btn py-3 border-b-2 border-transparent text-slate-400 hover:text-slate-200 flex items-center space-x-2">
+        <span>🔐</span><span>Vault & Security</span>
+      </button>
+    </nav>
+  </div>
+
+  <!-- Main Content -->
+  <main class="flex-1 p-6 space-y-6 max-w-7xl mx-auto w-full">
+
+    <!-- TAB 1: OVERVIEW -->
+    <div id="tab-overview" class="tab-pane space-y-6">
+      <!-- KPI Row -->
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <div class="glass-card p-4">
+          <div class="flex justify-between items-center text-xs text-slate-400 mb-1">
+            <span>COMPUTE HEALTH</span>
+            <span class="text-emerald-400">NORMAL</span>
+          </div>
+          <div class="text-2xl font-bold text-white">4 Node Clusters</div>
+          <p class="text-xs text-slate-400 mt-2">Avg CPU: <span class="text-cyan-400 font-mono">24.5%</span> | RAM: <span class="text-cyan-400 font-mono">42.1%</span></p>
+        </div>
+        <div class="glass-card p-4">
+          <div class="flex justify-between items-center text-xs text-slate-400 mb-1">
+            <span>STORAGE POOL</span>
+            <span class="text-emerald-400">SMART PASSED</span>
+          </div>
+          <div class="text-2xl font-bold text-white">48.6 TB / 80 TB</div>
+          <p class="text-xs text-slate-400 mt-2">NVMe IOPS: <span class="text-cyan-400 font-mono">142,500</span> | Latency: <span class="text-cyan-400 font-mono">0.42ms</span></p>
+        </div>
+        <div class="glass-card p-4">
+          <div class="flex justify-between items-center text-xs text-slate-400 mb-1">
+            <span>DISCOVERED HOSTS</span>
+            <span class="text-cyan-400">ACTIVE SCAN</span>
+          </div>
+          <div class="text-2xl font-bold text-white">32 Endpoints</div>
+          <p class="text-xs text-slate-400 mt-2">Subnet: <span class="text-cyan-400 font-mono">192.168.1.0/24</span> (SNMP / ARP)</p>
+        </div>
+        <div class="glass-card p-4">
+          <div class="flex justify-between items-center text-xs text-slate-400 mb-1">
+            <span>SECRETS VAULT</span>
+            <span class="text-emerald-400">AES-256 ACTIVE</span>
+          </div>
+          <div class="text-2xl font-bold text-white">18 Keys Stored</div>
+          <p class="text-xs text-slate-400 mt-2">Fernet PBKDF2 Key Derivation</p>
+        </div>
+      </div>
+
+      <!-- Real-time telemetry chart & quick actions -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div class="glass-card p-5 lg:col-span-2">
+          <div class="flex justify-between items-center mb-4">
+            <h2 class="text-sm font-semibold text-white tracking-wide">SYSTEM TELEMETRY STREAM (CPU, RAM & DISK I/O)</h2>
+            <span class="text-xs font-mono text-cyan-400">REFRESHING: REAL-TIME</span>
+          </div>
+          <div class="h-64">
+            <canvas id="telemetryChart"></canvas>
+          </div>
+        </div>
+        <div class="glass-card p-5 space-y-4">
+          <h2 class="text-sm font-semibold text-white tracking-wide">MODULAR TOOLKIT PROJECTS</h2>
+          <div class="space-y-3 text-xs">
+            <div class="p-3 bg-slate-900/80 rounded border border-slate-800 flex justify-between items-center">
+              <div>
+                <span class="font-semibold text-white block">projects/net_discovery</span>
+                <span class="text-slate-400">Ping sweep, SNMP, and open ports scanner</span>
+              </div>
+              <span class="text-emerald-400 font-mono">3 Tests ✅</span>
+            </div>
+            <div class="p-3 bg-slate-900/80 rounded border border-slate-800 flex justify-between items-center">
+              <div>
+                <span class="font-semibold text-white block">projects/docker_stacks</span>
+                <span class="text-slate-400">Web & monitoring compose architectures</span>
+              </div>
+              <span class="text-emerald-400 font-mono">3 Tests ✅</span>
+            </div>
+            <div class="p-3 bg-slate-900/80 rounded border border-slate-800 flex justify-between items-center">
+              <div>
+                <span class="font-semibold text-white block">projects/monitor_agent</span>
+                <span class="text-slate-400">CPU, RAM, and Disk health monitor agent</span>
+              </div>
+              <span class="text-emerald-400 font-mono">3 Tests ✅</span>
+            </div>
+            <div class="p-3 bg-slate-900/80 rounded border border-slate-800 flex justify-between items-center">
+              <div>
+                <span class="font-semibold text-white block">projects/storage_health</span>
+                <span class="text-slate-400">SMART attributes, IOPS, and latency audit</span>
+              </div>
+              <span class="text-emerald-400 font-mono">4 Tests ✅</span>
+            </div>
+            <div class="p-3 bg-slate-900/80 rounded border border-slate-800 flex justify-between items-center">
+              <div>
+                <span class="font-semibold text-white block">projects/iac_scripts</span>
+                <span class="text-slate-400">Cloud-init & provisioning templates</span>
+              </div>
+              <span class="text-emerald-400 font-mono">3 Tests ✅</span>
+            </div>
+            <div class="p-3 bg-slate-900/80 rounded border border-slate-800 flex justify-between items-center">
+              <div>
+                <span class="font-semibold text-white block">projects/vault_secrets</span>
+                <span class="text-slate-400">AES-256 encrypted credential vault</span>
+              </div>
+              <span class="text-emerald-400 font-mono">4 Tests ✅</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 2: COMPUTE & CONTAINERS -->
+    <div id="tab-compute" class="tab-pane hidden space-y-6">
+      <div class="glass-card p-5">
+        <h2 class="text-base font-bold text-white mb-2">🖥️ Compute & Container Orchestrator</h2>
+        <p class="text-xs text-slate-400 mb-4">Generate and preview production-ready Docker Compose stacks dynamically (`web`, `monitoring`).</p>
+        <div class="flex space-x-3 mb-4">
+          <button onclick="renderStack('web')" id="btn-stack-web" class="px-4 py-2 bg-cyan-600 hover:bg-cyan-500 text-white rounded text-xs font-semibold">Web Stack (Nginx + App + DB)</button>
+          <button onclick="renderStack('monitoring')" id="btn-stack-mon" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded text-xs font-semibold">Monitoring Stack (Prometheus + Grafana)</button>
+        </div>
+        <pre id="stackCode" class="p-4 bg-slate-950 rounded border border-slate-800 font-mono text-xs text-cyan-300 overflow-x-auto"></pre>
+      </div>
+    </div>
+
+    <!-- TAB 3: STORAGE & SMART -->
+    <div id="tab-storage" class="tab-pane hidden space-y-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="glass-card p-5">
+          <h2 class="text-base font-bold text-white mb-2">💾 Storage Health Checker</h2>
+          <p class="text-xs text-slate-400 mb-4">Auditing block devices, SMART telemetry status, and IOPS latency parameters.</p>
+          <div class="space-y-4">
+            <div>
+              <div class="flex justify-between text-xs mb-1">
+                <span class="text-slate-300 font-medium">/dev/nvme0n1 (OS Pool)</span>
+                <span class="text-emerald-400 font-mono">Healthy (Temp 38°C)</span>
+              </div>
+              <div class="w-full bg-slate-800 rounded-full h-2.5">
+                <div class="bg-emerald-500 h-2.5 rounded-full" style="width: 32%"></div>
+              </div>
+              <span class="text-[10px] text-slate-400">32% used (160 GB / 500 GB)</span>
+            </div>
+            <div>
+              <div class="flex justify-between text-xs mb-1">
+                <span class="text-slate-300 font-medium">/dev/sda-sdd (RAID-10 Data Pool)</span>
+                <span class="text-emerald-400 font-mono">Healthy (Temp 41°C)</span>
+              </div>
+              <div class="w-full bg-slate-800 rounded-full h-2.5">
+                <div class="bg-cyan-500 h-2.5 rounded-full" style="width: 61%"></div>
+              </div>
+              <span class="text-[10px] text-slate-400">61% used (24.4 TB / 40 TB)</span>
+            </div>
+          </div>
+        </div>
+        <div class="glass-card p-5">
+          <h2 class="text-base font-bold text-white mb-2">IOPS & Latency Benchmark Matrix</h2>
+          <table class="w-full text-xs text-left text-slate-300">
+            <thead class="text-slate-400 border-b border-slate-800">
+              <tr>
+                <th class="py-2">Metric</th>
+                <th class="py-2">Target Baseline</th>
+                <th class="py-2">Observed</th>
+                <th class="py-2">Status</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-800/60 font-mono">
+              <tr>
+                <td class="py-2">Sequential Read</td>
+                <td>3,200 MB/s</td>
+                <td class="text-cyan-400">3,450 MB/s</td>
+                <td><span class="text-emerald-400">PASS</span></td>
+              </tr>
+              <tr>
+                <td class="py-2">Sequential Write</td>
+                <td>2,800 MB/s</td>
+                <td class="text-cyan-400">2,910 MB/s</td>
+                <td><span class="text-emerald-400">PASS</span></td>
+              </tr>
+              <tr>
+                <td class="py-2">Random 4K IOPS</td>
+                <td>120,000 IOPS</td>
+                <td class="text-cyan-400">142,500 IOPS</td>
+                <td><span class="text-emerald-400">OPTIMAL</span></td>
+              </tr>
+              <tr>
+                <td class="py-2">Write Latency</td>
+                <td>< 1.0 ms</td>
+                <td class="text-cyan-400">0.42 ms</td>
+                <td><span class="text-emerald-400">OPTIMAL</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 4: NETWORK DISCOVERY -->
+    <div id="tab-network" class="tab-pane hidden space-y-6">
+      <div class="glass-card p-5">
+        <h2 class="text-base font-bold text-white mb-2">🌐 Subnet Scanner & Inventory Discovery</h2>
+        <p class="text-xs text-slate-400 mb-4">Simulating `projects/net_discovery` ping sweep and SNMP port analyzer on target subnet.</p>
+        <div class="flex space-x-3 mb-4">
+          <input type="text" id="scanSubnet" value="192.168.1.0/24" class="px-3 py-1.5 bg-slate-900 border border-slate-700 rounded text-xs font-mono text-cyan-300 w-48">
+          <button onclick="runDiscovery()" class="px-4 py-1.5 bg-cyan-600 hover:bg-cyan-500 text-white rounded text-xs font-semibold">Run Subnet Discovery</button>
+        </div>
+        <div id="discoveryOutput" class="space-y-2">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 5: VAULT & SECURITY -->
+    <div id="tab-security" class="tab-pane hidden space-y-6">
+      <div class="glass-card p-5 max-w-2xl">
+        <h2 class="text-base font-bold text-white mb-2">🔐 AES-256 Vault Secrets Manager</h2>
+        <p class="text-xs text-slate-400 mb-4">Interactive testbed for `projects/vault_secrets` using PBKDF2 HMAC-SHA256 and Fernet symmetric encryption.</p>
+        <div class="space-y-3">
+          <div>
+            <label class="block text-xs text-slate-400 mb-1">Secret Key Name</label>
+            <input type="text" id="secretKey" value="DATABASE_PASSWORD" class="w-full px-3 py-1.5 bg-slate-900 border border-slate-700 rounded text-xs font-mono text-slate-200">
+          </div>
+          <div>
+            <label class="block text-xs text-slate-400 mb-1">Secret Value (Plaintext)</label>
+            <input type="text" id="secretVal" value="SuperSecureP@ssw0rd2026!" class="w-full px-3 py-1.5 bg-slate-900 border border-slate-700 rounded text-xs font-mono text-slate-200">
+          </div>
+          <button onclick="encryptSecret()" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded text-xs font-semibold">Encrypt into Vault</button>
+          <div id="vaultResult" class="mt-4 p-3 bg-slate-950 rounded border border-slate-800 text-xs font-mono text-emerald-400 hidden">
+            <!-- Result here -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="border-t border-slate-800 bg-slate-900/60 py-3 text-center text-xs text-slate-500">
+    Febriyansyah • Presales Infrastructure Operations Hub • Clean Modular Architecture
+  </footer>
+
+  <script>
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-pane').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('border-cyan-400', 'text-cyan-400');
+        btn.classList.add('border-transparent', 'text-slate-400');
+      });
+      document.getElementById('tab-' + tabId).classList.remove('hidden');
+      const activeBtn = document.getElementById('tab-btn-' + tabId);
+      activeBtn.classList.remove('border-transparent', 'text-slate-400');
+      activeBtn.classList.add('border-cyan-400', 'text-cyan-400');
+    }
+
+    // Stack rendering
+    const stacks = {
+      web: `version: '3.8'\nservices:\n  nginx:\n    image: nginx:alpine\n    ports:\n      - "80:80"\n      - "443:443"\n    volumes:\n      - ./nginx.conf:/etc/nginx/nginx.conf:ro\n    depends_on:\n      - web_app\n\n  web_app:\n    build: .\n    environment:\n      - ENV=production\n      - DB_HOST=postgres_db\n    restart: unless-stopped\n\n  postgres_db:\n    image: postgres:15-alpine\n    environment:\n      - POSTGRES_DB=infra_prod\n      - POSTGRES_USER=admin\n      - POSTGRES_PASSWORD_FILE=/run/secrets/db_pass\n    volumes:\n      - pgdata:/var/lib/postgresql/data\n\nvolumes:\n  pgdata:`,
+      monitoring: `version: '3.8'\nservices:\n  prometheus:\n    image: prom/prometheus:latest\n    ports:\n      - "9090:9090"\n    volumes:\n      - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro\n\n  grafana:\n    image: grafana/grafana:latest\n    ports:\n      - "3000:3000"\n    environment:\n      - GF_SECURITY_ADMIN_PASSWORD=admin\n    depends_on:\n      - prometheus`
+    };
+
+    function renderStack(name) {
+      document.getElementById('stackCode').innerText = stacks[name];
+    }
+    renderStack('web');
+
+    // Discovery rendering
+    function runDiscovery() {
+      const out = document.getElementById('discoveryOutput');
+      out.innerHTML = `
+        <div class="p-3 bg-slate-900 rounded border border-slate-800 flex justify-between items-center text-xs">
+          <div><span class="font-mono text-cyan-400">192.168.1.1</span> <span class="text-slate-400">— Gateway Router / Firewall</span></div>
+          <span class="text-emerald-400 font-mono">Ports: 22, 53, 443, 161 (SNMPv2)</span>
+        </div>
+        <div class="p-3 bg-slate-900 rounded border border-slate-800 flex justify-between items-center text-xs">
+          <div><span class="font-mono text-cyan-400">192.168.1.10</span> <span class="text-slate-400">— Core SAN/NAS Storage Gateway</span></div>
+          <span class="text-emerald-400 font-mono">Ports: 22, 443, 2049 (NFS), 3260 (iSCSI)</span>
+        </div>
+        <div class="p-3 bg-slate-900 rounded border border-slate-800 flex justify-between items-center text-xs">
+          <div><span class="font-mono text-cyan-400">192.168.1.50</span> <span class="text-slate-400">— Compute Host (Docker Cluster 01)</span></div>
+          <span class="text-emerald-400 font-mono">Ports: 22, 2376 (Docker), 9100 (Exporter)</span>
+        </div>
+      `;
+    }
+    runDiscovery();
+
+    // Vault Encrypt
+    function encryptSecret() {
+      const k = document.getElementById('secretKey').value;
+      const v = document.getElementById('secretVal').value;
+      const res = document.getElementById('vaultResult');
+      res.classList.remove('hidden');
+      const fakeCipher = "gAAAAABl" + btoa(k + ":" + v).substring(0, 36) + "==";
+      res.innerHTML = `
+        <span class="text-slate-400 block mb-1">Key: <strong>${k}</strong> Encrypted Successfully!</span>
+        <span class="text-slate-500 text-[10px] block">Algorithm: AES-256-CBC with HMAC-SHA256 (Fernet)</span>
+        <div class="mt-2 text-cyan-300 break-all">${fakeCipher}</div>
+      `;
+    }
+
+    // Telemetry Chart
+    const ctx = document.getElementById('telemetryChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['17:40', '17:42', '17:44', '17:46', '17:48', '17:50', '17:52', '17:54'],
+        datasets: [
+          { label: 'CPU Usage (%)', data: [18, 24, 21, 35, 28, 22, 25, 24], borderColor: '#38bdf8', tension: 0.3, fill: false },
+          { label: 'RAM Usage (%)', data: [40, 41, 41, 42, 43, 42, 42, 42], borderColor: '#34d399', tension: 0.3, fill: false },
+          { label: 'Disk IOPS (x1000)', data: [85, 92, 110, 142, 120, 135, 128, 142], borderColor: '#fbbf24', tension: 0.3, fill: false }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          x: { grid: { color: 'rgba(51, 65, 85, 0.4)' }, ticks: { color: '#94a3b8' } },
+          y: { grid: { color: 'rgba(51, 65, 85, 0.4)' }, ticks: { color: '#94a3b8' } }
+        },
+        plugins: {
+          legend: { labels: { color: '#cbd5e1', font: { size: 11 } } }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
